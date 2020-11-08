@@ -11,7 +11,7 @@ ENV LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8
 
-RUN pacman --noconfirm -Syuu curl lib32-glibc net-tools tree \
+RUN pacman --noconfirm -Syuu lib32-glibc net-tools tree \
     && pacman --noconfirm -Sc \
     && useradd ${USER} \
     && mkdir ${HOME} \
