@@ -26,7 +26,6 @@ RUN chown -R ${USER}:${USER} ${SERVER}
 
 USER ${USER}
 RUN curl https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -C ${SERVER} -xz \
-    && ln -s ${SERVER}/linux32/steamclient.so ~/.steam/sdk32/steamclient.so \
     && cd ${SERVER} \
     && ./steamcmd.sh +runscript ./srcds.txt
 
