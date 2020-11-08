@@ -1,12 +1,15 @@
 FROM archlinux
 
-LABEL version="2020-11-04"
-LABEL organization="@cycom"
-LABEL maintainers="@wrexes, @breigner01"
+LABEL version="2020-11-04" \
+      organization="@cycom" \
+      maintainers="@wrexes, @breigner01"
 
-ENV USER csgo
-ENV HOME /home/$USER
-ENV SERVER $HOME/hlserver
+ENV USER=csgo \
+    HOME=/home/${USER} \
+    SERVER=${HOME}/hlserver \
+    LANG=en_US.UTF-8 \
+    LC_ALL=en_US.UTF-8 \
+    LANGUAGE=en_US.UTF-8
 
 RUN pacman --noconfirm -Syuu curl lib32-glibc net-tools tree \
     && pacman --noconfirm -Sc \
@@ -14,10 +17,6 @@ RUN pacman --noconfirm -Syuu curl lib32-glibc net-tools tree \
     && mkdir ${HOME} \
     && chown ${USER}:${USER} ${HOME} \
     && mkdir ${SERVER}
-
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
 
 ADD ./autoexec.cfg ${SERVER}/csgo/csgo/cfg/autoexec.cfg
 ADD ./server.cfg ${SERVER}/csgo/csgo/cfg/server.cfg
@@ -27,6 +26,7 @@ RUN chown -R ${USER}:${USER} ${SERVER}
 
 USER ${USER}
 RUN curl https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -C ${SERVER} -xz \
+    && ln -s ${SERVER}/linux32/steamclient.so ~/.steam/sdk32/steamclient.so \
     && cd ${SERVER} \
     && ./steamcmd.sh +runscript ./srcds.txt
 
