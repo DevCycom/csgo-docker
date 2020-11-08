@@ -19,6 +19,3 @@ jobs:
 
         - name: Build
           run: ./buildimg.sh
-
-        - name: Run          
-          run: docker run -p 27015:27015/udp cycom/csgo
