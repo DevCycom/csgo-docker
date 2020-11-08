@@ -1,6 +1,9 @@
 name: CSGO Docker
 
-on: [push, pull_request]
+on:
+    push:
+        branches:
+            - test
 
 defaults:
     run:
@@ -20,12 +23,6 @@ jobs:
         - name: Build
           run: ./buildimg
 
-on:
-    push:
-        branches:
-            - test
-
-jobs:
     merge-branch:
         runs-on: ubuntu-latest
         steps:
