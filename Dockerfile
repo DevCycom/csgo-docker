@@ -1,6 +1,6 @@
 FROM archlinux
 
-LABEL version="2020-11-04" \
+LABEL version="2020-11-08" \
       organization="@cycom" \
       maintainers="@wrexes, @breigner01"
 
