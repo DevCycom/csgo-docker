@@ -4,10 +4,10 @@ LABEL version="2020-11-04" \
       organization="@cycom" \
       maintainers="@wrexes, @breigner01"
 
-ENV USER=csgo \
-    HOME=/home/${USER} \
-    SERVER=${HOME}/hlserver \
-    LANG=en_US.UTF-8 \
+ENV USER=csgo
+ENV HOME=/home/${USER}
+ENV SERVER=${HOME}/hlserver
+ENV LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8
 
