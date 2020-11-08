@@ -20,6 +20,11 @@ jobs:
         - name: Build
           run: ./buildimg
 
+on:
+    push:
+        branches:
+            - test
+
 jobs:
     merge-branch:
         runs-on: ubuntu-latest
