@@ -22,4 +22,4 @@ jobs:
 
         - name: Run          
           timeout-minutes: 0.2
-          run: echo "exit" | docker run -p 27015:27015/udp -i cycom/csgo
+          run: docker run -p 27015:27015/udp cycom/csgo
