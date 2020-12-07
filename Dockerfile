@@ -18,6 +18,7 @@ RUN pacman --noconfirm -Syuu lib32-glibc net-tools tree \
     && chown ${USER}:${USER} ${HOME} \
     && mkdir ${SERVER}
 
+COPY data/cfg ${SERVER}/csgo/csgo/cfg
 ADD ./autoexec.cfg ${SERVER}/csgo/csgo/cfg/autoexec.cfg
 ADD ./server.cfg ${SERVER}/csgo/csgo/cfg/server.cfg
 ADD ./srcds.txt ${SERVER}/srcds.txt
